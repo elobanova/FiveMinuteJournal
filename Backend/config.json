@@ -1,7 +1,6 @@
 {
-    "port" : 3000,
+    "port" : 8181,
     "mongoose": {
         "uri": "mongodb://localhost/session"
-    },
-	"roles" : ["Administrator", "Limited"]
+    }
 }
