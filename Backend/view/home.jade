@@ -1,0 +1,18 @@
+extends layout
+
+block content
+	-each script in scripts 
+		script(type='text/javascript', src= script)
+	#broaddiv.col-sm-6.col-md-4.col-md-offset-4
+		h1  #{user.username} is currently logged in.
+		form(action='/weeklychallenge', method='POST')
+			div.form-group
+				label Challenge of the week
+				input(type='text', name='challenge', class='form-control', placeholder='Text of a challenge')
+			div.form-group
+				label Date
+				input(type='date', name='week', class='form-control')
+			button(type='submit', class='btn btn-warning btn-lg') Add to challenges
+			span.clearfix
+			br
+		a(href='/signout') Sign Out
