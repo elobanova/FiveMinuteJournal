@@ -1,17 +1,24 @@
 package com.fiveminutejournalapp;
 
+import android.graphics.Typeface;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 
 public class HomeActivity extends ActionBarActivity {
+    private TextView welcomeTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
+        welcomeTextView = (TextView) findViewById(R.id.welcomeText);
+        Typeface face= Typeface.createFromAsset(getAssets(), "font/Raleway-Regular.ttf");
+        welcomeTextView.setTypeface(face);
     }
 
     @Override
