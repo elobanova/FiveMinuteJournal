@@ -13,11 +13,6 @@ db.once('open', function callback () {
 
 module.exports = mongoose.model('UsersModel',{
 	id: String,
-    role: {
-        type: String,
-        enum: config.get('roles'),
-        required: true
-    },
 	username: { type: String, required: true, unique: true},
     email: { type: String, required: true},
 	password: { type: String, required: true}
