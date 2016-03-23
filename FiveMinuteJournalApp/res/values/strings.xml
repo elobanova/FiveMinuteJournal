@@ -6,5 +6,12 @@
     <string name="welcome_text">WELCOME TO A SIMPLE BUT YET EFFECTIVE TREATMENT.</string>
     <string name="open_journal_button">Open my journal</string>
     <string name="action_settings">Settings</string>
+    <string name="logout_menu_label">Log out</string>
+    <string name="login_tab_label">Log In</string>
+    <string name="signup_tab_label">Sign Up</string>
+    <string name="login_username_label">Username:</string>
+    <string name="login_email_label">Email:</string>
+    <string name="create_password">Password:</string>
+    <string name="signup_button_label">Sign up</string>
 
 </resources>
