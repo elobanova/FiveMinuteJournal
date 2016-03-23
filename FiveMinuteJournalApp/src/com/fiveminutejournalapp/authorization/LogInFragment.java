@@ -15,7 +15,6 @@ import android.widget.Button;
  * Created by ekaterina on 23.03.2016.
  */
 public class LogInFragment extends Fragment {
-	public static final String HOST_ADDRESS = "http://e-cognita.herokuapp.com";
 	public static final String MyPREFERENCES = "MyPrefs";
 	public static final String username = "usernameKey";
 	public static final String password = "passwordKey";
