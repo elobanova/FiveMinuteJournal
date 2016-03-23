@@ -36,7 +36,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
+            android:background="@color/bordo"
+            android:textColor="@color/white"
+            android:padding="6pt"
+            android:textSize="@dimen/open_journal_size"
             android:text="@string/open_journal_button" />
+
     </LinearLayout>
 
 </LinearLayout>
