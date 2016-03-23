@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">FiveMinuteJournalApp</string>
+    <string name="home_label">Five Minute Journal</string>
+    <string name="welcome_text">WELCOME TO A SIMPLE BUT YET EFFECTIVE TREATMENT.</string>
+    <string name="open_journal_button">Open my journal</string>
+    <string name="action_settings">Settings</string>
+
+</resources>

@@ -1,6 +1,0 @@
-<resources>
-    <string name="app_name">FiveMinuteJournalApp</string>
-
-    <string name="welcome_text">Welcome to a simple but yet effective treatment</string>
-    <string name="action_settings">Settings</string>
-</resources>
