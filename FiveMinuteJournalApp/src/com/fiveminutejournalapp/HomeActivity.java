@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.fiveminutejournalapp.authorization.LogInFragment;
 import com.fiveminutejournalapp.authorization.SignInActivity;
 
 public class HomeActivity extends Activity {
@@ -30,8 +31,14 @@ public class HomeActivity extends Activity {
 		openJournalButton.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				Intent signinActivityIntent = new Intent(HomeActivity.this, SignInActivity.class);
-				startActivity(signinActivityIntent);
+				Intent activityIntent = null;
+				if (LogInFragment.getConnectedUser() == null) {
+					activityIntent = new Intent(HomeActivity.this, SignInActivity.class);
+				} else {
+					activityIntent = new Intent(HomeActivity.this, SignInActivity.class);
+				}
+
+				startActivity(activityIntent);
 			}
 		});
 	}

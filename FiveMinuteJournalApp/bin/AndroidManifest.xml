@@ -25,6 +25,7 @@
         </activity>
         <activity
             android:name=".authorization.SignInActivity"></activity>
+        <activity android:name=".content.TimelineActivity"></activity>
     </application>
 
 </manifest>
