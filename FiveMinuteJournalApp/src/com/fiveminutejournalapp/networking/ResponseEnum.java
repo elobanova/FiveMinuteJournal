@@ -1,4 +1,4 @@
-package networking;
+package com.fiveminutejournalapp.networking;
 
 /**
  * Created by ekaterina on 24.03.2016.

@@ -20,5 +20,6 @@
     <string name="email_hint">example@domain.com</string>
     <string name="sign_in_progress_title">Signing In...</string>
     <string name="sign_in_progress_message">Please Wait!</string>
+    <string name="failed_to_login_message">Failed to log in</string>
 
 </resources>

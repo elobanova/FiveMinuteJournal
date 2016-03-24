@@ -1,7 +1,8 @@
-package networking;
+package com.fiveminutejournalapp.networking;
 
 public enum ApiPathEnum {
-	SIGN_UP("/signup");
+	SIGN_UP("/signup"),
+	USER_CHECK("/login");
 
 	private final String path;
 

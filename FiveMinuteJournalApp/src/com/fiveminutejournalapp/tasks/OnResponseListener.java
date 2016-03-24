@@ -1,4 +1,4 @@
-package tasks;
+package com.fiveminutejournalapp.tasks;
 
 /**
  * Created by ekaterina on 24.03.2016.

@@ -1,4 +1,6 @@
-package content;
+package com.fiveminutejournalapp.content;
+
+import com.fiveminutejournalapp.R;
 
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
