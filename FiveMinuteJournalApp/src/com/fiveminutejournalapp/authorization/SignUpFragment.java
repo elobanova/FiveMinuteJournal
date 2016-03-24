@@ -1,5 +1,6 @@
 package com.fiveminutejournalapp.authorization;
 
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -20,7 +21,8 @@ public class SignUpFragment extends Fragment {
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		final View fragmentView = inflater.inflate(R.layout.signup_fragment, container, false);
 		this.signupButton = (Button) fragmentView.findViewById(R.id.signup_button);
-
+		Typeface gothamFace = Typeface.createFromAsset(getActivity().getAssets(), "fonts/gotham-bold.ttf");
+		signupButton.setTypeface(gothamFace);
 		return fragmentView;
 	}
 

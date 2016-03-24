@@ -24,7 +24,7 @@ public final class R {
          */
         public static final int activity_horizontal_margin=0x7f050000;
         public static final int activity_vertical_margin=0x7f050001;
-        public static final int open_journal_size=0x7f050003;
+        public static final int journal_button_text_size=0x7f050003;
         public static final int welcome_text_size=0x7f050002;
     }
     public static final class drawable {
@@ -32,22 +32,26 @@ public final class R {
         public static final int ic_launcher=0x7f020001;
     }
     public static final class id {
-        public static final int action_settings=0x7f09000a;
-        public static final int email_label=0x7f090005;
-        public static final int email_signup_input=0x7f090006;
+        public static final int action_settings=0x7f09000d;
+        public static final int email_label=0x7f090009;
+        public static final int email_signup_input=0x7f09000a;
+        public static final int login_button=0x7f090007;
+        public static final int login_password_input=0x7f090006;
+        public static final int login_username_input=0x7f090004;
         public static final int open_journal_button=0x7f090001;
-        public static final int password_label=0x7f090007;
-        public static final int password_signup_input=0x7f090008;
+        public static final int password_label=0x7f090005;
+        public static final int password_signup_input=0x7f09000b;
         public static final int realtabcontent=0x7f090002;
-        public static final int signup_button=0x7f090009;
-        public static final int username_input=0x7f090004;
+        public static final int signup_button=0x7f09000c;
+        public static final int username_input=0x7f090008;
         public static final int username_label=0x7f090003;
         public static final int welcomeText=0x7f090000;
     }
     public static final class layout {
         public static final int activity_home=0x7f030000;
         public static final int activity_sign_in=0x7f030001;
-        public static final int signup_fragment=0x7f030002;
+        public static final int login_fragment=0x7f030002;
+        public static final int signup_fragment=0x7f030003;
     }
     public static final class menu {
         public static final int home=0x7f080000;
@@ -55,15 +59,22 @@ public final class R {
     public static final class string {
         public static final int action_settings=0x7f060004;
         public static final int app_name=0x7f060000;
-        public static final int create_password=0x7f06000a;
+        public static final int email_hint=0x7f060010;
         public static final int home_label=0x7f060001;
+        public static final int login_button_label=0x7f06000c;
         public static final int login_email_label=0x7f060009;
         public static final int login_tab_label=0x7f060006;
         public static final int login_username_label=0x7f060008;
         public static final int logout_menu_label=0x7f060005;
         public static final int open_journal_button=0x7f060003;
+        public static final int password_hint=0x7f06000f;
+        public static final int password_label=0x7f06000a;
+        public static final int sign_in_progress_message=0x7f060012;
+        public static final int sign_in_progress_title=0x7f060011;
         public static final int signup_button_label=0x7f06000b;
         public static final int signup_tab_label=0x7f060007;
+        public static final int username_login_hint=0x7f06000e;
+        public static final int username_signup_hint=0x7f06000d;
         public static final int welcome_text=0x7f060002;
     }
     public static final class style {

@@ -11,7 +11,14 @@
     <string name="signup_tab_label">Sign Up</string>
     <string name="login_username_label">Username:</string>
     <string name="login_email_label">Email:</string>
-    <string name="create_password">Password:</string>
+    <string name="password_label">Password:</string>
     <string name="signup_button_label">Sign up</string>
+    <string name="login_button_label">Log in</string>
+    <string name="username_signup_hint">Username will be used for identification</string>
+    <string name="username_login_hint">Username as registered</string>
+    <string name="password_hint">Your password here</string>
+    <string name="email_hint">example@domain.com</string>
+    <string name="sign_in_progress_title">Signing In...</string>
+    <string name="sign_in_progress_message">Please Wait!</string>
 
 </resources>

@@ -19,22 +19,9 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/username_input"
-        android:hint="@string/username_signup_hint"/>
-    
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/login_email_label"
-        android:id="@+id/email_label" />
-
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="textEmailAddress"
         android:ems="10"
-        android:id="@+id/email_signup_input"
-        android:hint="@string/email_hint"/>
+        android:id="@+id/login_username_input"
+        android:hint="@string/username_login_hint"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -47,7 +34,7 @@
         android:layout_height="wrap_content"
         android:inputType="textPassword"
         android:ems="10"
-        android:id="@+id/password_signup_input"
+        android:id="@+id/login_password_input"
         android:hint="@string/password_hint"/>
 
     <Space
@@ -69,8 +56,8 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/signup_button_label"
-            android:id="@+id/signup_button"
+            android:text="@string/login_button_label"
+            android:id="@+id/login_button"
             android:background="@color/bordo"
             android:textColor="@color/white"
             android:padding="6pt"
