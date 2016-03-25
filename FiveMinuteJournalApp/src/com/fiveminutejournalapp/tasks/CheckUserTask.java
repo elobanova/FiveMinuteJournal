@@ -1,5 +1,6 @@
 package com.fiveminutejournalapp.tasks;
 
+import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.ProtocolException;
@@ -14,7 +15,6 @@ import android.os.AsyncTask;
 import com.fiveminutejournalapp.model.User;
 import com.fiveminutejournalapp.networking.ApiPathEnum;
 import com.fiveminutejournalapp.networking.HostConnection;
-import com.fiveminutejournalapp.networking.ResponseEnum;
 import com.fiveminutejournalapp.networking.SSLContextHelper;
 
 public class CheckUserTask {
@@ -49,38 +49,37 @@ public class CheckUserTask {
 			try {
 				String urlParameters = "username=" + URLEncoder.encode(loggingInUser.getUserName(), "UTF-8")
 						+ "&password=" + URLEncoder.encode(loggingInUser.getPassword(), "UTF-8");
-				URL url = new URL(HostConnection.getFullAddress() + ApiPathEnum.USER_CHECK.getPath() + "/?"
-						+ urlParameters);
+
+				URL url = new URL(HostConnection.getFullAddress() + ApiPathEnum.USER_CHECK.getPath());
 				conn = (HttpsURLConnection) url.openConnection();
 				conn.setSSLSocketFactory(SSLContextHelper.initSSLContext(context).getSocketFactory());
 				conn.setHostnameVerifier(SSLContextHelper.getHostnameVerifier());
 				conn.setRequestMethod("POST");
+
 				conn.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
 
+				conn.setRequestProperty("Content-Length", "" + Integer.toString(urlParameters.getBytes().length));
+				conn.setRequestProperty("Content-Language", "en-US");
+
 				conn.setUseCaches(false);
-				conn.setDoInput(true);
 				conn.setDoOutput(true);
 
-				int code = conn.getResponseCode();
-				ResponseEnum responseCode = ResponseEnum.getResponseEnumByCode(code);
-				switch (responseCode) {
-				case OK:
-				case CREATED:
-					return loggingInUser;
-				default:
-					break;
-				}
+				DataOutputStream dataOutputStream = new DataOutputStream(conn.getOutputStream());
+				dataOutputStream.writeBytes(urlParameters);
+				dataOutputStream.flush();
+				dataOutputStream.close();
 			} catch (MalformedURLException e) {
 				onResponseListener.onError(e.getMessage());
 			} catch (ProtocolException e) {
 				onResponseListener.onError(e.getMessage());
 			} catch (IOException e) {
-				e.printStackTrace();
+				onResponseListener.onError(e.getMessage());
 			} finally {
 				if (conn != null) {
 					conn.disconnect();
 				}
 			}
+
 			return null;
 		}
 
