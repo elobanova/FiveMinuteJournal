@@ -66,6 +66,16 @@ public class User implements Serializable {
 			this.nestedId = user.id;
 		}
 
+		public UserBuilder setEmail(String newEmail) {
+			this.nestedEmailAddress = newEmail;
+			return this;
+		}
+
+		public UserBuilder setId(String newId) {
+			this.nestedId = newId;
+			return this;
+		}
+
 		/**
 		 * Builds the instance of the user
 		 * 
