@@ -18,7 +18,8 @@ var express = require('express'),
 	};
 	https = require('https'),
 	server = https.createServer(options, app),
-	io = require('socket.io').listen(server);
+	io = require('socket.io').listen(server),
+	bCrypt = require('bcrypt-nodejs');
 
 app.set('views', path.join(__dirname, 'view'));
 app.set('view engine', 'jade');

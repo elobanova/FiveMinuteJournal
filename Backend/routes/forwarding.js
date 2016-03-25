@@ -2,7 +2,8 @@ var express = require('express'),
 config = require('../model/config'),
 addchallenge = require('../fiveminutescontent/addchallenge'),
 listchallenge = require('../fiveminutescontent/listchallenge'),
-router = express.Router();
+router = express.Router(),
+api = require('../routes/api')(router);
 
 var isAuthenticated = function (req, res, next) {
 	if (req.isAuthenticated())
