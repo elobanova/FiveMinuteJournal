@@ -1,11 +1,8 @@
 package com.fiveminutejournalapp.tasks;
 
-import java.io.DataOutputStream;
-import java.io.IOException;
-import java.net.MalformedURLException;
-import java.net.ProtocolException;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 import java.net.URL;
-import java.net.URLEncoder;
 
 import javax.net.ssl.HttpsURLConnection;
 
@@ -15,6 +12,7 @@ import android.os.AsyncTask;
 import com.fiveminutejournalapp.model.User;
 import com.fiveminutejournalapp.networking.ApiPathEnum;
 import com.fiveminutejournalapp.networking.HostConnection;
+import com.fiveminutejournalapp.networking.ResponseEnum;
 import com.fiveminutejournalapp.networking.SSLContextHelper;
 
 public class CheckUserTask {
@@ -47,32 +45,30 @@ public class CheckUserTask {
 
 			HttpsURLConnection conn = null;
 			try {
-				String urlParameters = "username=" + URLEncoder.encode(loggingInUser.getUserName(), "UTF-8")
-						+ "&password=" + URLEncoder.encode(loggingInUser.getPassword(), "UTF-8");
-
 				URL url = new URL(HostConnection.getFullAddress() + ApiPathEnum.USER_CHECK.getPath());
 				conn = (HttpsURLConnection) url.openConnection();
 				conn.setSSLSocketFactory(SSLContextHelper.initSSLContext(context).getSocketFactory());
 				conn.setHostnameVerifier(SSLContextHelper.getHostnameVerifier());
-				conn.setRequestMethod("POST");
+				conn.setRequestMethod("GET");
 
-				conn.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
-
-				conn.setRequestProperty("Content-Length", "" + Integer.toString(urlParameters.getBytes().length));
-				conn.setRequestProperty("Content-Language", "en-US");
-
-				conn.setUseCaches(false);
-				conn.setDoOutput(true);
-
-				DataOutputStream dataOutputStream = new DataOutputStream(conn.getOutputStream());
-				dataOutputStream.writeBytes(urlParameters);
-				dataOutputStream.flush();
-				dataOutputStream.close();
-			} catch (MalformedURLException e) {
-				onResponseListener.onError(e.getMessage());
-			} catch (ProtocolException e) {
-				onResponseListener.onError(e.getMessage());
-			} catch (IOException e) {
+				conn.setDoInput(true);
+				conn.connect();
+				int code = conn.getResponseCode();
+				ResponseEnum responseCode = ResponseEnum.getResponseEnumByCode(code);
+				switch (responseCode) {
+				case OK:
+					BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+					StringBuilder sb = new StringBuilder();
+					String line;
+					while ((line = br.readLine()) != null) {
+						sb.append(line + "\n");
+					}
+					br.close();
+					return JSONUserParser.findUser(sb.toString(), loggingInUser);
+				default:
+					break;
+				}
+			} catch (Exception e) {
 				onResponseListener.onError(e.getMessage());
 			} finally {
 				if (conn != null) {
