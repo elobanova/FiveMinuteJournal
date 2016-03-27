@@ -1,7 +1,6 @@
 var mongoose = require('mongoose'),
-	config = require('./config');
-
-mongoose.connect(config.get('mongoose:uri'));
+	config = require('./config'),
+	Schema = mongoose.Schema;
 
 var DayValue = new Schema({
 	id: String,
