@@ -1,7 +1,7 @@
 var express = require('express'),
 config = require('../model/config'),
-addchallenge = require('../fiveminutescontent/addchallenge'),
-listchallenge = require('../fiveminutescontent/listchallenge'),
+addchallenge = require('../fiveminutescontent/challenge').addchallenge,
+listchallenge = require('../fiveminutescontent/challenge').listchallenge,
 router = express.Router(),
 api = require('../routes/api')(router);
 

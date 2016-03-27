@@ -1,6 +1,6 @@
 var ChallengesModel = require('../model/challenges');
 
-module.exports = function (req) {
+exports.addchallenge = function (req) {
 	var challenge = ChallengesModel({
 			createdby : req.user,
 			text : req.param('challenge'),
@@ -14,5 +14,20 @@ module.exports = function (req) {
 		}
 
 		console.log('Challenge created!');
+	});
+}
+
+exports.listchallenge = function (callback) {
+
+	ChallengesModel.find({}, function (err, challenges) {
+		if (err) {
+			console.log('Error during retrieving challenges: ' + err);
+			throw err;
+		}
+
+		console.log(challenges);
+		
+		var jsonResponse = {challenges: challenges};
+		callback(jsonResponse);
 	});
 }
