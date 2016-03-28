@@ -3,7 +3,6 @@ var express = require('express'),
 	logger = require('morgan'),
 	cookieParser = require('cookie-parser'),
 	bodyParser = require('body-parser'),
-	mongoose = require('mongoose'),
 	app = express(),
 	passport = require('passport'),
 	expressSession = require('express-session'),
@@ -21,6 +20,7 @@ var express = require('express'),
 	io = require('socket.io').listen(server),
 	bCrypt = require('bcrypt-nodejs');
 
+require('./model/mongoose');
 app.set('views', path.join(__dirname, 'view'));
 app.set('view engine', 'jade');
 

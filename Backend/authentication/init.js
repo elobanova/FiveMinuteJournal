@@ -1,6 +1,6 @@
 var login = require('./login');
 var signup = require('./register');
-var UsersModel = require('../model/users');
+var UsersModel = require('../model/user');
 
 module.exports = function(passport) {
     passport.serializeUser(function(user, done) {

@@ -8,8 +8,12 @@ module.exports = function (router) {
 	.get(UserApi.listUsers)
 	.post(UserApi.register);
 
-	router.route('/api/dayvalue')
-	.post(DayValueApi.createDayValue);
+	router.route('/api/dayvalues')
+	.post(DayValueApi.createDayValue)
+	.get(DayValueApi.listDayValues);
+	
+	router.route('/api/dayvalues/:id')
+	.get(DayValueApi.getDayValue);
 
 	return router;
 };
