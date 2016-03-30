@@ -2,4 +2,5 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android">
     <color name="bordo">#59030C</color>
     <color name="white">#ffffff</color>
+    <color name="black">#000000</color>
 </resources>

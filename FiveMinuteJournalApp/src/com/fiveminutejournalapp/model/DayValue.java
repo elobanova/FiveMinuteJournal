@@ -28,6 +28,14 @@ public class DayValue implements Serializable {
 		this.howmakebetter = builder.nestedHowmakebetter;
 	}
 
+	public String getDate() {
+		return this.date;
+	}
+
+	public String getCitation() {
+		return this.citation;
+	}
+
 	public static class DayValueBuilder {
 		private String nestedId;
 		private User nestedAuthor;
@@ -57,9 +65,39 @@ public class DayValue implements Serializable {
 			this.nestedAuthor = author;
 			return this;
 		}
-		
+
 		public DayValueBuilder setDate(String date) {
 			this.nestedDate = date;
+			return this;
+		}
+
+		public DayValueBuilder setId(String id) {
+			this.nestedId = id;
+			return this;
+		}
+
+		public DayValueBuilder setCitation(String cite) {
+			this.nestedCitation = cite;
+			return this;
+		}
+
+		public DayValueBuilder setGratefulFor(String[] gratefulFor) {
+			this.nestedGratefulFor = gratefulFor;
+			return this;
+		}
+
+		public DayValueBuilder setAmazingtoday(String[] amazingtoday) {
+			this.nestedAmazingtoday = amazingtoday;
+			return this;
+		}
+
+		public DayValueBuilder setWhatwouldimprove(String[] whatwouldimprove) {
+			this.nestedWhatwouldimprove = whatwouldimprove;
+			return this;
+		}
+
+		public DayValueBuilder setHowmakebetter(String[] howmakebetter) {
+			this.nestedHowmakebetter = howmakebetter;
 			return this;
 		}
 
