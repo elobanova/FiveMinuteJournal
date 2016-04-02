@@ -12,6 +12,9 @@ module.exports = function (router) {
 	.post(DayValueApi.createDayValue)
 	.get(DayValueApi.listDayValues);
 	
+	router.route('/api/owndayvalues')
+	.get(DayValueApi.listOwnDayValues);
+	
 	router.route('/api/dayvalues/:id')
 	.get(DayValueApi.getDayValue);
 

@@ -68,3 +68,25 @@ exports.listDayValues = async(function (req, res, next) {
 					})));
 		return res.json(jsonObject);
 	});
+
+exports.listOwnDayValues = async(function (req, res, next) {
+		var ownDays = await(DayValueModel.find({
+					createdby : req.user.id
+				}).exec());
+
+		if (!ownDays) {
+			return res.json([]);
+		}
+		var result = ownDays.map(function (dayValue) {
+				return {
+					id : dayValue.id,
+					date : dayValue.date,
+					gratefulfor : dayValue.gratefulfor,
+					whatwouldimprove : dayValue.whatwouldimprove,
+					amazingtoday : dayValue.amazingtoday,
+					howmakebetter : dayValue.howmakebetter,
+					text : dayValue.text
+				};
+			});
+		return res.json(result);
+	});
