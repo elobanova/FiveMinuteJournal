@@ -21,5 +21,8 @@
     <string name="sign_in_progress_title">Signing In...</string>
     <string name="sign_in_progress_message">Please Wait!</string>
     <string name="failed_to_login_message">Failed to log in</string>
+    <string name="citation_label">Citation of the day:</string>
+    <string name="citation_hint">Enter a citation...</string>
+    <string name="save_day_button_label">Save Day</string>
 
 </resources>

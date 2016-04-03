@@ -26,6 +26,7 @@
         <activity
             android:name=".authorization.SignInActivity"></activity>
         <activity android:name=".content.TimelineActivity"></activity>
+        <activity android:name="com.fiveminutejournalapp.content.DayActivity"></activity>
     </application>
 
 </manifest>
