@@ -54,8 +54,12 @@ public class User implements Serializable {
 		private String nestedUserName;
 		private String nestedId;
 
-		public UserBuilder(String userName, String nestedPassword) {
+		public UserBuilder(String userName) {
 			this.nestedUserName = userName;
+		}
+
+		public UserBuilder(String userName, String nestedPassword) {
+			this(userName);
 			this.nestedPassword = nestedPassword;
 		}
 

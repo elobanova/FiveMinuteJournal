@@ -30,16 +30,22 @@ public class JSONUserParser {
 		List<User> items = new ArrayList<User>();
 		JSONArray usersList = new JSONArray(jsonString);
 		for (int i = 0; i < usersList.length(); i++) {
-			JSONObject courseJSONObject = usersList.getJSONObject(i);
-			items.add(parseItem(courseJSONObject));
+			JSONObject fullUserJSONObject = usersList.getJSONObject(i);
+			items.add(parseItem(fullUserJSONObject));
 		}
 		return items;
 	}
 
-	private static User parseItem(JSONObject courseJSONObject) throws JSONException {
-		String userName = courseJSONObject.getString(USERNAME_PROPERTY_NAME);
-		String email = courseJSONObject.getString(EMAIL_PROPERTY_NAME);
-		String password = courseJSONObject.getString(PASSWORD_PROPERTY_NAME);
+	public static User parseFormattedUserItem(JSONObject formattedUserJSONObject) throws JSONException {
+		String userName = formattedUserJSONObject.getString(USERNAME_PROPERTY_NAME);
+		String email = formattedUserJSONObject.getString(EMAIL_PROPERTY_NAME);
+		return new UserBuilder(userName).setEmail(email).build();
+	}
+
+	private static User parseItem(JSONObject fullUserJSONObject) throws JSONException {
+		String userName = fullUserJSONObject.getString(USERNAME_PROPERTY_NAME);
+		String email = fullUserJSONObject.getString(EMAIL_PROPERTY_NAME);
+		String password = fullUserJSONObject.getString(PASSWORD_PROPERTY_NAME);
 		return new UserBuilder(userName, password).setEmail(email).build();
 	}
 
